@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DH.Curbside.API</name>
+    </assembly>
+    <members>
+        <member name="T:DH.Curbside.API.SwaggerConfig">
+            <summary>
+            Swagger Configuration
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.SwaggerConfig.Register">
+            <summary>
+            Register Method
+            </summary>
+        </member>
+        <member name="T:DH.Curbside.API.Controllers.CurbsideBaseController">
+            <summary>
+            Base class for all the controllers
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.CurbsideBaseController.BuildSuccessResponse(System.Net.HttpStatusCode)">
+            <summary>
+            Returns success response
+            </summary>
+            <param name="httpStatus">HttpStatusCode</param>
+            <returns>HttpResponseMessage object</returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.CurbsideBaseController.BuildSuccessResponse``1(System.Net.HttpStatusCode,``0)">
+            <summary>
+            Returns success response
+            </summary>
+            <param name="httpStatus">HttpStatusCode</param>
+            <param name="resultValue">Result</param>
+            <returns>HttpResponseMessage object</returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.CurbsideBaseController.BuildErrorResponse(DH.Curbside.Core.Enterprise.Common.ResponseCodes)">
+            <summary>
+            Returns error response
+            </summary>
+            <param name="responseCode">ResponseCodes</param>
+            <returns>HttpResponseMessage object</returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.CurbsideBaseController.BuildErrorResponse(DH.Curbside.Core.Enterprise.Common.ResponseCodes,System.Net.HttpStatusCode)">
+            <summary>
+            Returns error response
+            </summary>
+            <param name="responseCode">ResponseCodes</param>
+            <param name="httpStatus">HttpStatusCode</param>
+            <returns></returns>
+        </member>
+        <member name="T:DH.Curbside.API.Controllers.MediasiteController">
+            <summary>
+            Manage all media site operations
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.MediasiteController.#ctor(DH.Curbside.Core.Application.Mediasite.IMediasiteApplication)">
+            <summary>
+            Constructor for MediasiteController
+            </summary>
+            <param name="mediasiteApplication">IWhitelistApplication object</param>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.MediasiteController.GetMediasiteVideos(System.String)">
+            <summary>
+            Get list of Mediasite Videos
+            </summary>
+            <param name="tenantId">Tenant Id</param>        
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.MediasiteController.GetMediasiteAuthTicket(System.String)">
+            <summary>
+            Get list of Mediasite Videos
+            </summary>
+            <param name="tenantId">Tenant Id</param>        
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.MediasiteController.GetMediasitePresentation(System.String)">
+            <summary>
+            Simplify API : Get MediaSite object for Presentation Id
+            </summary>
+            <param name="presentationId">Presentation Id</param>        
+            <returns>PresentationModel Object</returns>
+        </member>
+        <member name="T:DH.Curbside.API.Controllers.PatientCaseController">
+            <summary>
+            Manage all patient case operations
+            </summary>    [ApiVersion("1.0")]
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.PatientCaseController.#ctor(DH.Curbside.Core.Application.PatientCase.IPatientCaseApplication)">
+            <summary>
+            Patient case controller constructor
+            </summary>
+            <param name="patientCaseApplication"></param>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.PatientCaseController.CreatePatientCase(System.String,DH.Curbside.Core.Application.PatientCase.ViewModels.RequestPatientCaseViewModel)">
+            <summary>
+            Add a new case for a patient
+            </summary>
+            <param name="tenantId">Tenant Id</param>
+            <param name="patientCaseViewModel">PatientCase View Model</param>
+            <example url="http://localhost:50020/api/v1.0/d2e5a14f-1de2-4e29-891e-3d8252a13273/PatientCase"></example>
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.PatientCaseController.GetPatientCase(System.String,System.String)">
+            <summary>
+            Get list of cases, given providerId return only submitted or reviewed
+            </summary>
+            <param name="tenantId">Tenant Id</param>
+            <param name="providerId">Provider Id</param>
+            <example url="http://localhost:50020/api/v1.0/dd1f863a-d7d9-4df6-b1f5-4f570185185d/PatientCase?providerId=0aa252c5-0545-4a32-978e-d815c9ea7bf5"></example>        
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.PatientCaseController.GetSinglePatientCase(System.String,System.String)">
+            <summary>
+            Get individual case detail
+            </summary>
+            <param name="tenantId">Tenant Id</param>
+            <param name="caseId">Case Id</param>
+            <example url="http://localhost:50020/api/v1.0/PatientCase/dd1f863a-d7d9-4df6-b1f5-4f570185185d/0aa252c5-0545-4a32-978e-d815c9ea7bf5"></example>        
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.PatientCaseController.GetPatientCaseMasterStatus">
+            <summary>
+            Gets patient case status master data
+            </summary>
+            <param name="tenantId">tenantId</param>
+            <example url="http://localhost:50020/api/v1/PatienceCaseMasterStatus"></example>        
+            <returns></returns>
+        </member>
+        <member name="T:DH.Curbside.API.Controllers.WhitelistDomainController">
+            <summary>
+            Manages all whitelist domain related operations
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.WhitelistDomainController.#ctor(DH.Curbside.Core.Application.WhitelistDomain.IWhitelistDomainApplication)">
+            <summary>
+            Constructor for DomainController
+            </summary>
+            <param name="whitelistDomainApplication">IWhitelistApplication object</param>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.WhitelistDomainController.CreateDomains(System.Collections.Generic.List{DH.Curbside.Core.Application.WhitelistDomain.ViewModels.RequestDomainViewModel},System.String)">
+            <summary>
+            Adds a domain 
+            </summary>
+            <param name="domainViewModels">Request Domain View Model</param>
+            <param name="tenantId">Tenant Id</param>
+            <returns></returns>
+        </member>
+        <member name="T:DH.Curbside.API.Controllers.WhitelistUserController">
+            <summary>
+            Manages all whitelist user related operations
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.WhitelistUserController.#ctor(DH.Curbside.Core.Application.WhitelistUser.IWhitelistUserApplication)">
+            <summary>
+            Constructor for WhitelistController
+            </summary>
+            <param name="whitelistApplication">IWhitelistApplication object</param>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.WhitelistUserController.GetWhitelistUsers(System.String)">
+            <summary>
+            Get list of whitelisted users
+            </summary>
+            <param name="tenantId">Tenant Id</param>
+            <example url="http://localhost:50020/api/v1.0/DD1F863A-D7D9-4DF6-B1F5-4F570185185D/whitelist"></example>
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.WhitelistUserController.GetWhitelistUser(System.String,System.String)">
+            <summary>
+            Get user with whitelistinginfo
+            </summary>
+            <param name="tenantId">Tenant Id</param>
+            <param name="email">email</param>
+            <example url="http://localhost:50020/api/v1.0/DD1F863A-D7D9-4DF6-B1F5-4F570185185D/whitelist/k@s.com"></example>
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.WhitelistUserController.DeprovisionUser(System.String,System.String,System.Int32)">
+            <summary>
+            Deprovision an user from whitelist
+            </summary>
+            <param name="tenantId">Tenant Id</param>
+            <param name="email">Email ID</param>
+            <param name="appId">Application Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.WhitelistUserController.CreateWhitelistUser(System.Collections.Generic.List{DH.Curbside.Core.Application.WhitelistUser.ViewModels.RequestUserViewModel},System.String)">
+            <summary>
+            Add new users to the whitelist
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DH.Curbside.API.Controllers.WhitelistUserController.InviteUsers(System.Collections.Generic.List{DH.Curbside.Core.Application.WhitelistUser.ViewModels.RequestInviteViewModel},System.String)">
+            <summary>
+            InviteUsers 
+            </summary>
+            <param name="inviteViewModel">InviteViewModel object</param>
+            <param name="tenantId">Tenant Id</param>
+            <returns></returns>
+        </member>
+        <member name="T:DH.Curbside.API.FilterConfig">
+            <summary>
+            Handles global filters
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.FilterConfig.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
+            <summary>
+            Registers global filters
+            </summary>
+            <param name="filters">GlobalFilterCollection</param>
+        </member>
+        <member name="T:DH.Curbside.API.RouteConfig">
+            <summary>
+            Handles routing configurations
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
+            <summary>
+            creates routing configuration
+            </summary>
+            <param name="routes"></param>
+        </member>
+        <member name="T:DH.Curbside.API.Infrastructure.IOC.UnityConfig">
+            <summary>
+            Handles unity configuration
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.IOC.UnityConfig.RegisterComponents">
+            <summary>
+            Registers unity configurations
+            </summary>
+        </member>
+        <member name="T:DH.Curbside.API.Infrastructure.IOC.UnityResolver">
+            <summary>
+            Handles unity configuration
+            </summary>
+        </member>
+        <member name="F:DH.Curbside.API.Infrastructure.IOC.UnityResolver.Container">
+            <summary>
+            Unity Container
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.IOC.UnityResolver.#ctor(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Unity resolver constructor
+            </summary>
+            <param name="container">Unity Container</param>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.IOC.UnityResolver.GetService(System.Type)">
+            <summary>
+            Returns the  resolver type
+            </summary>
+            <param name="serviceType">Service Type object
+            </param>
+            <returns>object</returns>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.IOC.UnityResolver.GetServices(System.Type)">
+            <summary>
+            Returns the  list of resolver types
+            </summary>
+            <param name="serviceType">Service Type Object</param>
+            <returns>IEnumerable object</returns>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.IOC.UnityResolver.BeginScope">
+            <summary>
+            Creates dependency scope
+            </summary>
+            <returns>Dependency cope object</returns>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.IOC.UnityResolver.Dispose">
+            <summary>
+            Disposes container
+            </summary>
+        </member>
+        <member name="T:DH.Curbside.API.Infrastructure.Filters.HandleApiExceptionFilter">
+            <summary>
+             Handles all exceptions
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.Filters.HandleApiExceptionFilter.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Process all Exceptions in current context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:DH.Curbside.API.Infrastructure.Filters.ValidationActionFilter">
+            <summary>
+            Handles all request validation
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.Filters.ValidationActionFilter.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Process all request validation in current context
+            </summary>
+            <param name="actionContext">HttpActionContext object</param>
+        </member>
+        <member name="T:DH.Curbside.API.Infrastructure.Handlers.LoggingHandler">
+            <summary>
+            Handles  all exceptions and trace logging.
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.Handlers.LoggingHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Logs the request persist information
+            </summary>
+            <param name="request">request object</param>
+            <param name="cancellationToken">cancel token object</param>
+            <returns>HttpResponseMessag object</returns>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.Handlers.LoggingHandler.LogRequestLoggingInfo(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Logs the request  information.
+            </summary>
+            <param name="request">HttpRequestMessage object</param>
+        </member>
+        <member name="M:DH.Curbside.API.Infrastructure.Handlers.LoggingHandler.LogResponseLoggingInfo(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Logs the response  information
+            </summary>
+            <param name="response">HttpRequestMessage object</param>
+        </member>
+        <member name="T:DH.Curbside.API.WebApiConfig">
+            <summary>
+            Handles WebAPI routing
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Initializes WebAPI routing
+            </summary>
+            <param name="config">HttpConfiguration object</param>
+        </member>
+        <member name="T:DH.Curbside.API.WebApiApplication">
+            <summary>
+            WebApiApplication
+            </summary>
+        </member>
+        <member name="M:DH.Curbside.API.WebApiApplication.Application_Start">
+            <summary>
+            Application_Start event
+            </summary>
+        </member>
+    </members>
+</doc>

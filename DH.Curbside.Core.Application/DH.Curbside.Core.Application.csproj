@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1253C90-D844-4031-982C-E539E3E73900}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DH.Curbside.Core.Application</RootNamespace>
+    <AssemblyName>DH.Curbside.Core.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoMapper\AutoMapperConfiguration.cs" />
+    <Compile Include="AutoMapper\MappingProfile.cs" />
+    <Compile Include="Exceptions\InvalidApplicationIdException.cs" />
+    <Compile Include="Exceptions\InvalidCaseIdException.cs" />
+    <Compile Include="Exceptions\InValidData.cs" />
+    <Compile Include="Exceptions\InvalidEmailException.cs" />
+    <Compile Include="Exceptions\InvalidJsonException.cs" />
+    <Compile Include="Exceptions\InvalidProviderIdException.cs" />
+    <Compile Include="Exceptions\InvalidTenantIdException.cs" />
+    <Compile Include="Exceptions\PatientCaseNotAvailableException.cs" />
+    <Compile Include="Exceptions\WhitelistUserNotAvaliableException.cs" />
+    <Compile Include="Mediasite\IMediasiteApplication.cs" />
+    <Compile Include="Mediasite\MediasiteApplication.cs" />
+    <Compile Include="Mediasite\ViewModels\MediasiteModel.cs" />
+    <Compile Include="Mediasite\ViewModels\PresentationModel.cs" />
+    <Compile Include="PatientCase\IPatientCaseApplication.cs" />
+    <Compile Include="PatientCase\PatientCaseApplication.cs" />
+    <Compile Include="PatientCase\ViewModels\CreatePatientCaseResponseViewModel.cs" />
+    <Compile Include="PatientCase\ViewModels\PatientCaseStatusDescription.cs" />
+    <Compile Include="PatientCase\ViewModels\PatientCaseStatusMasterViewModel.cs" />
+    <Compile Include="PatientCase\ViewModels\PatientCaseInfo.cs" />
+    <Compile Include="PatientCase\ViewModels\PatientCaseViewModel.cs" />
+    <Compile Include="PatientCase\ViewModels\RequestPatientCaseViewModel.cs" />
+    <Compile Include="WhitelistDomain\IWhitelistDomainApplication.cs" />
+    <Compile Include="WhitelistDomain\ViewModels\RequestDomainViewModel.cs" />
+    <Compile Include="WhitelistDomain\WhitelistDomainApplication..cs" />
+    <Compile Include="WhitelistUser\IWhitelistUserApplication.cs" />
+    <Compile Include="WhitelistUser\ViewModels\RequestInviteViewModel.cs" />
+    <Compile Include="WhitelistUser\ViewModels\RequestUserViewModel.cs" />
+    <Compile Include="WhitelistUser\ViewModels\UserInfo.cs" />
+    <Compile Include="WhitelistUser\ViewModels\UserViewModel.cs" />
+    <Compile Include="WhitelistDomain\ViewModels\WhitelistDomainViewModel.cs" />
+    <Compile Include="WhitelistUser\ViewModels\WhitelistUserViewModel.cs" />
+    <Compile Include="WhitelistUser\WhitelistUserApplication.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DH.Curbside.Core.Domain\DH.Curbside.Core.Domain.csproj">
+      <Project>{532e8312-4e8b-44a0-a441-6ca8011cf5b5}</Project>
+      <Name>DH.Curbside.Core.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DH.Curbside.Core.Enterprise\DH.Curbside.Core.Enterprise.csproj">
+      <Project>{767c1094-314b-4853-9b21-d1faceb8d3c4}</Project>
+      <Name>DH.Curbside.Core.Enterprise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DH.Curbside.Core.Persistence\DH.Curbside.Core.Persistence.csproj">
+      <Project>{322fd9ea-f3be-41d1-81a6-c696b5736e7b}</Project>
+      <Name>DH.Curbside.Core.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DH.Curbside.Infrastructure.MediaSite\DH.Curbside.Infrastructure.MediaSite.csproj">
+      <Project>{bd699a01-f2ef-466a-87ad-db6901b2262a}</Project>
+      <Name>DH.Curbside.Infrastructure.MediaSite</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

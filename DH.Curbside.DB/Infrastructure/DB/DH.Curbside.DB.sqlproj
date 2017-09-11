@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DH.Curbside.DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{3a3cc013-e9c5-42fc-bb45-3a7dab94cf45}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DH.Curbside.DB</RootNamespace>
+    <AssemblyName>DH.Curbside.DB</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Publish" />
+    <Folder Include="Schema Objects" />
+    <Folder Include="Schema Objects\dbo" />
+    <Folder Include="Schema Objects\dbo\Tables" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Scripts\Post-Deployment\DefaultData" />
+    <Folder Include="Scripts\Post-Deployment\TestData" />
+    <Folder Include="Security" />
+    <Folder Include="Security\Schema" />
+    <Folder Include="Security\Users" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema Objects\dbo\Tables\DomainClientApplication.sql" />
+    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="Schema Objects\dbo\Tables\PatientCaseHistory.sql" />
+    <Build Include="Schema Objects\dbo\Tables\PatientCaseReview.sql" />
+    <Build Include="Schema Objects\dbo\Tables\ClientApplication.sql" />
+    <Build Include="Schema Objects\dbo\Tables\ClientApplicationTenant.sql" />
+    <Build Include="Schema Objects\dbo\Tables\EmailValidation.sql" />
+    <Build Include="Schema Objects\dbo\Tables\PhoneValidation.sql" />
+    <Build Include="Schema Objects\dbo\Tables\Provider.sql" />
+    <Build Include="Schema Objects\dbo\Tables\ProviderRole.sql" />
+    <Build Include="Schema Objects\dbo\Tables\Role.sql" />
+    <Build Include="Schema Objects\dbo\Tables\Status.sql" />
+    <Build Include="Schema Objects\dbo\Tables\Tenant.sql" />
+    <Build Include="Schema Objects\dbo\Tables\MediaAttachment.sql" />
+    <Build Include="Schema Objects\dbo\Tables\ProviderTOS.sql" />
+    <Build Include="Schema Objects\dbo\Tables\TermsOfService.sql" />
+    <Build Include="Schema Objects\dbo\Tables\AppLog.sql" />
+    <Build Include="Schema Objects\dbo\Tables\Domain.sql" />
+    <Build Include="Schema Objects\dbo\Tables\PatientCase.sql" />
+    <Build Include="Schema Objects\dbo\Tables\PatientCaseAttachment.sql" />
+    <Build Include="Schema Objects\dbo\Tables\User.sql" />
+    <Build Include="Schema Objects\dbo\Tables\WhitelistUserStatus.sql" />
+    <None Include="Scripts\Post-Deployment\DefaultData\Tenant.DefaultData.sql" />
+    <None Include="Scripts\Post-Deployment\DefaultData\ClientApplication.DefaultData.sql" />
+    <Build Include="Security\Users\CurbsideApiUser.sql" />
+    <Build Include="Security\RoleMembership.sql" />
+    <Build Include="Security\Users\RoleMembership.sql" />
+    <Build Include="Schema Objects\dbo\Tables\UserClientApplication.sql" />
+    <None Include="Scripts\Post-Deployment\DefaultData\Provider.DefaultData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Publish\Curbside.Local.publish.xml" />
+    <None Include="Publish\Curbside.Dev.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DH.Curbside.DB.refactorlog" />
+  </ItemGroup>
+</Project>
