@@ -1,12 +1,15 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Text;
+using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using DH.Curbside.Infrastructure.MediaSite.Mappings;
 using DH.Curbside.Infrastructure.MediaSite.Model;
-using System.Collections.Generic;
-using System.Configuration;
+
 
 namespace DH.Curbside.Infrastructure.MediaSite
 {
@@ -91,14 +94,27 @@ namespace DH.Curbside.Infrastructure.MediaSite
         /// <returns>Presentation Object</returns>
         public Presentation GetPresentation(string presentationId)
         {
+            //Get Auth info
             var authTicketInfo = RequestAuthTicket(presentationId, 1);
-            var presentations = GetPresentations(null, 0, 0);
-            var presentation = (from defaultItem in presentations
-                                where (defaultItem.Id == presentationId)
-                                select defaultItem).FirstOrDefault();
-            presentation.AuthorizationTicket = authTicketInfo;
+            var request = new RestRequest(string.Concat("Presentations('", presentationId, "')?$select=full"), Method.GET);
+            try
+            {
+                var presentationData = ClientManager.Client.Execute<GenericResponse<PresentationFullRepresentation>>(request);
 
-            return presentation;
+                //Convert json to Object
+                JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
+                var presentationFullDetails = jsSerializer.Deserialize<PresentationFullRepresentation>(presentationData.Content);
+                Presentation presentation = MapToModel(presentationFullDetails);
+                presentation.AuthorizationTicket = authTicketInfo;
+
+                return presentation;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+            
         }
 
         #region Private Methods
